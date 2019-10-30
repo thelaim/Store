@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+<div style="text-align: center">
+    <h5>
+        Спасибо за покупку!{{add_checkout}}
+    </h5>
+    <br>
+    <a class="nav-link" href="{% url 'index' %}"><button type="submit" class="btn btn-primary">В магазин</button></a>
+</div>
+{% endblock %}

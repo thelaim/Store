@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+<div>
+	Пользователь: {{user.username}}<br>
+</div>
+{% for item in items%}
+<div class="card" style="width: 14rem;">
+  <div class="card-header">
+    Название: {{item.items_title}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Цена: {{item.price}}руб</li>
+  </ul>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Время покупки: {{item.created_date}}</li>
+  </ul>
+</div><br><br>
+
+{%endfor%}
+{% endblock %}

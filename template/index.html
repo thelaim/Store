@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+{% for items in item%}
+  <div class="card" style="width: 13rem;float: left;margin-left: 2%;margin-bottom: 5%;">
+    <div class="card-body" style="width: 100%">
+      <img src="{{ items.image.url}}">
+      <div class="card-title" style="width: 100%;text-align: center;margin-top: 10%;"><a href="{% url 'item_detail' pk=items.pk %}" style="text-align: center;width: 100%;text-decoration: none;color: black;">{{items.title}}</a></div>
+      {% if user.is_authenticated %}
+      	<a href="{% url 'add_cart' pk=items.pk %}" style="text-align: center;width: 100%;text-decoration: none;">Добавить в корзину</a>
+      {% endif %}
+      <div class="card-title" style="width: 100%;text-align: center;margin-top: 10%;">Цена: {{items.price}}руб</div>
+      {% if user.is_authenticated %}
+        <a href="{% url 'checkout' %}" style="text-decoration: none;color: white;"><button type="button" class="btn btn-primary" style="width: 100%;text-align: center;margin-top: 10%;">Купить</button></a>
+      {% else %}
+        <button type="button" class="btn btn-primary" style="width: 100%;text-align: center;margin-top: 10%;" onclick="BuyNoAuthenticated()">Купить</button>
+      {% endif %}
+    </div>
+  </div>
+
+{%endfor%}
+{% endblock %}

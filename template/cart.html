@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+{% for item in items%}
+<div class="card" style="width: 14rem;">
+  <div class="card-header">
+    Название: {{item.title}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Цена: {{item.price}}</li>
+  </ul>
+</div><br>
+<a href="{% url 'remove_item' pk=item.pk %}" style="text-decoration: none;color: white;"><button type="button" class="btn btn-danger">Удалить из корзины</button></a>
+<br><br>
+
+{%endfor%}
+<div>Общая цена{{price}}</div>
+<a href="{% url 'checkout' %}" style="text-decoration: none;color: white;"><button type="button" class="btn btn-success">Оформить заказ</button></a>
+{% endblock %}
