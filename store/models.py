@@ -4,7 +4,6 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-import Image
 from PIL import Image
 
 class UserProfileInfo(models.Model):
@@ -20,7 +19,7 @@ class Category(models.Model):
         return self.name
 
 def upload_image_item(instance, filename):
-    filename = instance.title + '.' + filename.split('.')[-1] #Эта конструкция задает имя файла по названию статьи
+    filename = instance.title + '.' + filename.split('.')[-1] #Эта конструкция задает имя файла по названию товара
     return "{}/{}".format('image', filename)
 
 class Item(models.Model):
