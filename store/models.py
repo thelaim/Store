@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-import PIL
+import Image
 from PIL import Image
 
 class UserProfileInfo(models.Model):
