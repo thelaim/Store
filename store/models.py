@@ -1,10 +1,7 @@
-#!/usr/bin/env python3
-
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from PIL import Image
 
 class UserProfileInfo(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
